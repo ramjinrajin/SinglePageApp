@@ -9,11 +9,32 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.Script.Serialization;
+using System.Data;
 
 namespace ReferralBonus.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowCrossSiteJson]
+        public string GetFeed(int pageNumber, int pageSize)
+        {
+            string ConnectionName = "GS_Connect_online";
+            string connectionString = ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString;
+
+            List<Feed> Feeds = new List<Feed>();
+            FeedBusinessLayer feedBusLayer = new FeedBusinessLayer();
+            Feeds = feedBusLayer.Feeds.ToList();
+            JavaScriptSerializer Js = new JavaScriptSerializer();
+           return Js.Serialize(Feeds);
+        }
+
+
+
+
+
 
         public ActionResult admin()
         {
