@@ -129,6 +129,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="SingleHtml\Index make all cdn.html" />
     <Content Include="Style\1-col-portfolio.css" />
     <Content Include="Style\bootstrap.css" />
     <Content Include="Style\bootstrap.min.css" />
