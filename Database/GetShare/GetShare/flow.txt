@@ -1,0 +1,25 @@
+1. CHoose Asp.net application (choose mvc empty. it will create a template
+   and necessary folders and library). 
+
+2. we have model , controller and view folders . we create a controller.
+   then we create a view called index.cshtml. in the view we need top copy the html template
+  (header, title, body) from the html design. then we need to add the style, css, boostrap in 
+   vs solution. then click include to project. It will automatically inherit all the style
+   properties in the  vs solution
+
+ a). we need to create a model (business layer (c# codes works here))
+     we need to create two class files.
+     1. first cs file will be have same name as table name (insert table) (feed.cs)
+     2. second cs file have the ado.net (handles data layer) command.(feedbusinesslayer.cs)
+3.  we will create a controller with name home (homecontroller.cs)
+   (the controller handles the user request and renders the particular view. in our we have two
+    create action methods. they are get request and post request (save)
+
+4. in controller there is a method called tryupdatemodel. it will check whether the data is empty
+  or not.
+5. in controller we have to refer the two class files that we created in the business layer
+6. we have another method called is model state is valid. it validate the data and we pass the 
+value to business layer.
+
+7. business layer (feedbusinesslayer.cs (get data from feed.cs)) opens the connection string
+ and execute stored procedure.

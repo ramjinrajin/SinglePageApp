@@ -1,0 +1,34 @@
+/*!
+ * Start Bootstrap - 1 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.btn-search
+{
+    padding:0px;
+}
+
+
+ @media (max-width: 768px)
+        {
+            .form-control.btn-search
+            {
+                  margin-bottom: 10px;
+            }
+          
+        }
+
+ .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+
+      background-color: #5cb85c;
+    border-color: #4cae4c;
+}

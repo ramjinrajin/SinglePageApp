@@ -1,0 +1,87 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<ReferralBonus.Models.Feed>
+
+
+
+
+@{
+    ViewBag.Title = "Maximumreferral";
+   
+}
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+    
+
+
+        var name = GetParameterValues('categoryId');
+        if (name != null) {
+            $("#cat_drop").val(name);
+        }
+        else
+            $("#cat_drop").val(1);
+
+        var id = GetParameterValues('ID');
+        //alert("Hello " + name + " your ID is " + id);
+        function GetParameterValues(param) {
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0] == param) {
+                    return urlparam[1];
+                }
+            }
+        }
+    });
+</script>
+
+<!--Content of website-->
+@foreach (var item in Model)
+{
+    <div itemscope itemtype="http://schema.org/LocalBusiness" class="row">
+        <div class="col-md-3">
+            <a href="@Html.DisplayFor(modelItem => item.link)" target="_blank">
+                @if (item.image != "NIL")
+                {
+                    <img src="~/img/@Html.DisplayFor(modelItem => item.image)" alt="" class="img-responsive imgageGetshare">
+                }
+                else
+                {
+                    <img src="~/img/pic4.png" alt="" class="img-responsive imgageGetshare">
+                }
+            </a>
+        </div>
+        <div class="col-md-9">
+            <h3 itemprop="name">@Html.DisplayFor(modelItem => item.Title)</h3>
+
+            <p style="white-space: pre-line;">@Html.DisplayFor(modelItem => item.Description)</p>
+            <a itemprop="url" class="btn btn-success" href=@Html.DisplayFor(modelItem => item.link) target="_blank">Get the deal<span class="glyphicon glyphicon-chevron-right"></span></a>
+
+        </div>
+    </div>
+    <hr>
+
+}
+<div class="container Content_Margin_footer">
+    <div class="text-right">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"], categoryId = Request.QueryString["categoryId"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })  @*searchby = Request.QueryString["searchBy"],*@
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

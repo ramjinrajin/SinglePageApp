@@ -1,0 +1,176 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+@model IPagedList<ReferralBonus.Models.Feed>
+
+@{
+    ViewBag.logStatus = "logged";
+    ViewBag.Title = "Manage Feed";
+}
+
+
+
+
+
+@*<style>
+        table, td, th, tr {
+            border: 1px solid #337ab7;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>*@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var name = GetParameterValues('categoryId');
+        if (name != null) {
+            $("#cat_drop").val(name);
+        }
+        else
+            $("#cat_drop").val(1);
+
+        var id = GetParameterValues('ID');
+        //alert("Hello " + name + " your ID is " + id);
+        function GetParameterValues(param) {
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0] == param) {
+                    return urlparam[1];
+                }
+            }
+        }
+    });
+</script>
+
+
+
+<div class="jumbotron">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-bordered table-hover table-striped">
+
+        <thead>
+
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                using (@Html.BeginForm("Delete", "Home", new { id = item.ID }))
+                {
+                    if (item.Rowstatus == 'D')
+                    {
+                        <tr class="danger">
+
+                            @*<div class="container Content_Margin">*@
+                            <td>
+
+                                @if (item.image != "NIL")
+                                {
+                                    <img src="~/img/@Html.DisplayFor(modelItem => item.image)" alt="" class="img-responsive imgageGetshare">
+                                }
+                                else
+                                {
+                                    <img src="~/img/pic4.png" alt="" class="img-responsive imgageGetshare">
+                                }
+                            </td>
+                            @*</div>*@
+                            <td style="width: 20%;">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+
+                            <td style="width:70%;">
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+
+                            <td style="width: 10%">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+
+
+
+
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr >
+
+                            @*<div class="container Content_Margin">*@
+                            <td>
+
+                                @if (item.image != "NIL")
+                                {
+                                    <img src="~/img/@Html.DisplayFor(modelItem => item.image)" alt="" class="img-responsive imgageGetshare">
+                                }
+                                else
+                                {
+                                    <img src="~/img/pic4.png" alt="" class="img-responsive imgageGetshare">
+                                }
+                            </td>
+                            @*</div>*@
+                            <td style="width: 20%;">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+
+                            <td style="width:70%;">
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+
+                            <td style="width: 10%">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+
+
+
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                }
+            }
+        </tbody>
+    </table>
+    <div class="text-right">
+        @Html.PagedListPager(Model, page => Url.Action("ManageFeed", new { page, search = Request.QueryString["search"], categoryId = Request.QueryString["categoryId"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })  @*searchby = Request.QueryString["searchBy"],*@
+
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to Home", "Index") &nbsp;&nbsp;&nbsp;
+
+    </div>
+
+</div>
+
+
+

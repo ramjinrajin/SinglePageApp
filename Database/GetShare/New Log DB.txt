@@ -1,0 +1,40 @@
+Create table Gs_Log
+(
+LogID int primary key identity(1,1),
+ModuleName nvarchar(100),
+ActionName nvarchar(100),
+Exception nvarchar(max),
+createdate datetime default getdate()
+)
+
+
+--Drop   Procedure dbo.USP_LOG
+
+CREATE Procedure dbo.USP_LOG
+@ModuleName       varchar(100),
+@ActionName nvarchar(100),
+@Exception    varchar(max)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	INSERT INTO
+	[dbo].[Gs_Log]
+	(
+	[ModuleName],
+	[ActionName],
+	[Exception]
+	)
+	SELECT
+	@ModuleName ,@ActionName,@Exception
+
+	SET NOCOUNT OFF;
+END
+GO
+
+Create table Gs_Webservice
+(
+Service_id int primary key identity(1,1),
+ModuleName nvarchar(100),
+createdate datetime default getdate()
+)

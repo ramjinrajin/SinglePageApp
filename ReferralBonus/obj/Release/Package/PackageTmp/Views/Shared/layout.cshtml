@@ -1,0 +1,353 @@
+﻿
+
+<!DOCTYPE html>
+<!-- Microdata markup added by Google Structured Data Markup Helper. -->
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Style/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Style/1-col-portfolio.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ 
+    <link rel="icon" type="image/png" href="~/img/favicon.png" />
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            alert('hi');
+            var name = GetParameterValues('categoryId');
+            if (name != null) {
+                $("#cat_drop").val(name);
+            }
+            else
+                $("#cat_drop").val(1);
+
+            var id = GetParameterValues('ID');
+            //alert("Hello " + name + " your ID is " + id);
+            function GetParameterValues(param) {
+                var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < url.length; i++) {
+                    var urlparam = url[i].split('=');
+                    if (urlparam[0] == param) {
+                        return urlparam[1];
+                    }
+                }
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a  href="~/Home/index"><img src="~/img/logowhite.png" style="width: 185px;padding-top: 7px;" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+
+
+
+                @if (@ViewBag.Title == "Maximumreferral" || @ViewBag.Title == "login")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a style="background-color: #5CB85C;" href="~/home/Index">Home</a>
+                        </li>
+                        <li>
+                            <a href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li>
+                            <a href="~/home/ContactUs">ContactUs</a>
+                        </li>
+
+                        @if (ViewBag.logStatus == "logged")
+                        {
+
+                            <li>
+                                <a href="http://email16.godaddy.com" target="_blank">Mail</a>
+                            </li>
+
+                            <li>
+                                <a class="btn" href="/Signout/index">Sign out</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                }
+
+                @if (@ViewBag.Title == "Subscribe")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/home/Index">Home</a>
+                        </li>
+                        <li class="active">
+                            <a style="background-color: #5CB85C;" href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li>
+                            <a href="~/home/ContactUs">ContactUs</a>
+                        </li>
+
+                        @if (ViewBag.logStatus == "logged")
+                        {
+
+                            <li>
+                                <a href="http://email16.godaddy.com" target="_blank">Mail</a>
+                            </li>
+
+                            <li>
+                                <a class="btn" href="/Signout/index">Sign out</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                }
+
+
+
+
+                @if (@ViewBag.Title == "ContactUs")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/home/Index">Home</a>
+                        </li>
+                        <li>
+                            <a href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li class="active">
+                            <a style="background-color: #5CB85C;" href="~/home/ContactUs">ContactUs</a>
+                        </li>
+
+                        @if (ViewBag.logStatus == "logged")
+                        {
+
+                            <li>
+                                <a href="http://email16.godaddy.com" target="_blank">Mail</a>
+                            </li>
+
+                            <li>
+                                <a class="btn" href="/Signout/index">Sign out</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                }
+
+                @if (@ViewBag.Title == "Manage Feed")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/home/Index">Home</a>
+                        </li>
+                        <li>
+                            <a href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li >
+                            <a href="~/home/ContactUs">ContactUs</a>
+                        </li>
+
+                        @if (ViewBag.logStatus == "logged")
+                        {
+
+                            <li>
+                                <a href="http://email16.godaddy.com" target="_blank">Mail</a>
+                            </li>
+
+                            <li>
+                                <a class="btn" href="/Signout/index">Sign out</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                }
+                
+
+                @if (@ViewBag.Title == "Create")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/home/Index">Home</a>
+                        </li>
+                        <li>
+                            <a href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li>
+                            <a href="~/home/ContactUs">ContactUs</a>
+                        </li>
+
+                        @if (ViewBag.logStatus == "logged")
+                        {
+
+                            <li>
+                                <a href="http://email16.godaddy.com" target="_blank">Mail</a>
+                            </li>
+
+                            <li>
+                                <a class="btn" href="/Signout/index">Sign out</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                }
+
+
+
+
+
+
+
+
+
+                @if (@ViewBag.Title == "Maximumreferral")
+                {
+                    using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                    {
+
+                        @Html.TextBox("search", null, new { @class = "form-control btn-search" })    <input type="submit" class="btn btn-success" value="search" />
+                    }
+                    
+                    
+                     <div class="col-xs-4 navbar-form navbar-left">
+                    @Html.DropDownList("Categories", (IEnumerable<SelectListItem>)ViewBag.Categories, new { onchange = "document.location.href = '/Home/index?categoryId=' + this.options[this.selectedIndex].value;", @class = "form-control", @id = "cat_drop" })
+                    @*@Html.DropDownList("CategoryID", new List<SelectListItem>
+                {
+                    
+                new SelectListItem { Text="Business",Value="2"},
+                new SelectListItem { Text="Entertainment",Value="3"},
+                }, "---Select---",new { onchange = "document.location.href = '/Home/index?categoryId=' + this.options[this.selectedIndex].value;",  @class = "form-control", @id = "cat_drop" })*@
+                </div>
+                    
+                  
+                }
+               
+
+               
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    @if (@ViewBag.Title == "ContactUs")
+    {
+        <div class="jumbotron jumbotron-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <h1 class="h1">
+                            Contact us <small>Feel free to contact us</small>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+    @if (@ViewBag.Title == "Subscribe")
+    {
+
+        <div class="jumbotron jumbotron-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <h1 class="h1">
+                            Subscribe us <small>to get the new updates</small>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+
+    <div class="container">
+
+
+        @RenderBody()
+
+    </div>
+
+
+
+    <footer>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+
+
+                <div class="navbar-collapse collapse" id="footer-body">
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/home/Index">Home</a></li>
+                        <li>
+                            <a href="~/home/Subscribe">Subscribe</a>
+                        </li>
+                        <li>
+                            <a href="~/home/ContactUs">ContactUs</a>
+                        </li>
+                        <li>
+                            <a href="#">&copy; Maximum Referral 2016</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer-body">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="~/Script/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Script/bootstrap.min.js"></script>
+</body>
+</html>

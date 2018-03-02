@@ -1,0 +1,119 @@
+.ProductImage {
+  
+
+
+ 
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 175px;
+    width: 175px;
+    float: left;
+    /*border: 1px solid black;*/
+    padding: 3px;
+    margin-right: 12px;
+    margin-bottom: 1px;
+    overflow: hidden;
+
+
+}
+
+
+.ProductDescription {
+   
+    height: 175px;
+    width: 685px;
+    margin-left: 197px;
+    border-radius: 10px;
+}
+
+.imgageGetshare
+{
+  max-height: 100%;  
+  margin:auto;
+  display:block;
+}
+
+.caption
+{
+	    text-align: justify;
+}
+
+.seperator
+{
+
+	    margin: 22px 0 15px 77px;
+    border-bottom: 3px dotted #eee;
+    clear: both;
+    position: relative;
+    margin-left: 2px;
+    color: #333;
+}
+
+
+.container.Content_Margin
+{
+	width: 922px;
+	border-radius: 5px;
+    background-color: #FFF;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 3px; 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.container.Content_Margin_footer
+{
+	width: 922px;
+}
+
+
+
+.footer.text-center
+{
+	    margin-top: 100px;
+}
+
+.navbar-nav.nav.navbar-right.custom_position
+{
+	    margin-right: 119px;
+}
+
+
+
+.seperator_content
+{
+	  margin: 70px 0 15px 77px;
+    
+    clear: both;
+    position: relative;
+    margin-left: 2px;
+    color: #333;
+}
+
+h3
+{
+	color: #333;
+    text-decoration: none;
+}
+    
+.navbar_Brand_custom
+{
+	   
+    font-size: x-large;
+    color: #337ab7;;
+  
+       line-height: 47px;
+
+}
+
+.col-md-10 {
+    width: 50.333333%;
+    
+}
+
+
+
+
+
+
+
